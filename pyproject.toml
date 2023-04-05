@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "skypro-course-6"
+version = "0.1.0"
+description = ""
+authors = ["Andrey Torlopov <mail@andreytorlopov.ru>"]
+readme = "README.md"
+packages = [{include = "skypro_course_6"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2"
+psycopg2 = "^2.9.6"
+pillow = "^9.5.0"
+autopep8 = "^2.0.2"
+djangorestframework-simplejwt = "^5.2.2"
+pytest-django = "^4.5.2"
+pytest-factoryboy = "^2.5.1"
+isort = "^5.12.0"
+pyformat = "^0.7"
+pyjwt = "^2.6.0"
+social-auth-app-django = "^5.2.0"
+sqlparse = "^0.4.3"
+cryptography = "^40.0.1"
+jinja2 = "^3.1.2"
+markupsafe = "^2.1.2"
+mypy-extensions = "^1.0.0"
+oauthlib = "^3.2.2"
+packaging = "^23.0"
+pathspec = "^0.11.1"
+python-dotenv = "^1.0.0"
+pyparsing = "^3.0.9"
+requests = "^2.28.2"
+django-cors-headers = "^3.14.0"
+django-phonenumber-field = "^7.0.2"
+django-templated-mail = "^1.1.1"
+ruamel-yaml = "^0.17.21"
+ruamel-yaml-clib = "^0.2.7"
+phonenumbers = "^8.13.8"
+djangorestframework = "^3.14.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

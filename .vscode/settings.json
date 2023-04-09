@@ -87,7 +87,9 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "__pycache__": true,
-        "**/__pycache__": true
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        ".pytest_cache": true
     },
     "explorerExclude.backup": {},
     "python.testing.pytestArgs": [

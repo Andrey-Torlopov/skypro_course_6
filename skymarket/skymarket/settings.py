@@ -93,13 +93,20 @@ REST_FRAMEWORK = {
 
 # TODO здесь мы настраиваем Djoser
 DJOSER = {
+    "SEND_ACTIVATION_EMAIL": True,
+    "SEND_CONFIRMATION_EMAIL": True,
+    "ACTIVATION_URL": "users/activation/{uid}/{token}/",
+    "DOMAIN": "",
+    "PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND": True,
+    "PASSWORD_REsET_CONFIRM_URL": "users/reset_password_confirm/{uid}/{token}/",
+    "TOKEN_MODEL": None,
     'SERIALIZERS': {
         'user_create': 'users.serializers.UserRegistrationSerializer',
         'current_user': 'users.serializers.UserCurrentSerializer',
         'user_update': 'users.serializers.UserCurrentSerializer',
         'user': 'users.serializers.UserCurrentSerializer',
     },
-    'LOGIN_FIELD': 'email'
+    'LOGIN_FIELD': 'email',
 }
 
 # Database

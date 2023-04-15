@@ -1,3 +1,5 @@
+from ads.models import Ad, Comment
+from ads.serializers import CommentSerializer
 from rest_framework import pagination, viewsets
 
 
@@ -11,5 +13,9 @@ class AdViewSet(viewsets.ModelViewSet):
 
 
 class CommentViewSet(viewsets.ModelViewSet):
-    pass
-
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    pagination_class = AdPagination
+    # def perform_create(self, serializer):
+    #     # serializer.save(author = self.request.user, ad = self.kwargs.get('pk...')
+    #     return super().perform_create(serializer)

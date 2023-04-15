@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     'rest_framework_simplejwt',
+    'corsheaders',
     'djoser',
     "users",
     "ads",
@@ -93,7 +94,10 @@ REST_FRAMEWORK = {
 # TODO здесь мы настраиваем Djoser
 DJOSER = {
     'SERIALIZERS': {
-        'user_create': 'users.serializers.UserRegistrationSerializer'
+        'user_create': 'users.serializers.UserRegistrationSerializer',
+        'current_user': 'users.serializers.UserCurrentSerializer',
+        'user_update': 'users.serializers.UserCurrentSerializer',
+        'user': 'users.serializers.UserCurrentSerializer',
     },
     'LOGIN_FIELD': 'email'
 }
@@ -168,3 +172,5 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = os.environ.get("EMAIL_PORT")
 
 AUTH_USER_MODEL = 'users.User'
+
+DATE_INPUT_FORMATS = ['%Y-%m-%d %H:%M:%S']

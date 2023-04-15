@@ -11,5 +11,13 @@ class UserRegistrationSerializer(BaseUserRegistrationSerializer):
     pass
 
 
-class CurrentUserSerializer(serializers.ModelSerializer):
-    pass
+class UserCurrentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
+
+
+# class UserUpdateSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = User
+#         fields = '__all__'

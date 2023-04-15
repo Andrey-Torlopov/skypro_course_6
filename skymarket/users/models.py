@@ -16,14 +16,11 @@ class User(AbstractBaseUser):
     phone = PhoneNumberField()
     email = models.CharField(max_length=100, unique=True, null=False)
     password = models.CharField(max_length=500)
-    last_login = models.DateTimeField()
     role = models.CharField(
         max_length=8, choices=UserRole.choices, default=UserRole.USER)
-    is_active = models.BooleanField(default=True)
     image = models.ImageField(
         upload_to='user_avatars/', blank=True, null=True, default=None)
-
-    last_login = models.DateField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
 
     @property
     def is_superuser(self) -> bool:

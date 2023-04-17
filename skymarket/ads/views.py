@@ -1,15 +1,33 @@
 from ads.models import Ad, Comment
-from ads.serializers import CommentSerializer
+from ads.serializers import AdDetailSerializer, AdSerializer, CommentSerializer
 from rest_framework import pagination, viewsets
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
 
 class AdPagination(pagination.PageNumberPagination):
-    pass
+    page_size = 10
 
 
-# TODO view функции. Предлагаем Вам следующую структуру - но Вы всегда можете использовать свою
 class AdViewSet(viewsets.ModelViewSet):
-    pass
+    queryset = Ad.objects.all()
+    default_serializer = AdSerializer
+    pagination_class = AdPagination
+
+    serializer_classes = {
+        "retrieve": AdDetailSerializer,
+        "list": AdSerializer
+    }
+
+    default_permission = [AllowAny()]
+    permissions_list = {
+        "retrieve": [IsAuthenticated()]
+    }
+
+    def get_serializer_class(self) -> AdSerializer | AdDetailSerializer:
+        return self.serializer_classes.get(self.action, self.default_serializer)
+
+    def get_permissions(self) -> IsAuthenticated | AllowAny:
+        return self.permissions_list.get(self.action, self.default_permission)
 
 
 class CommentViewSet(viewsets.ModelViewSet):
